@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>モナリザの作画技法比較</title>
+  <style>
+    body {
+      font-family: "Hiragino Sans", sans-serif;
+      background-color: #f8f8f8;
+      text-align: center;
+      margin: 50px;
+    }
+    img {
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: opacity 0.5s ease;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    #explanation {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 60%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>モナリザの作画技法比較</h1>
+
+  <!-- モナリザ1 -->
+  <img id="monaImage" src="img/basicmonalisa.jpg" alt="モナリザ1">
+
+  <br>
+  <button id="toggleButton">比較画像に切り替える</button>
+
+  <div id="explanation" style="display: none;">
+    <h2>スフマート技法</h2>
+    <p>実際のモナリザは輪郭線をぼかして描かれている。比較画像と実際のモナリザを比べるとより被写体の立体感や柔らかさが強調される。</p>
+  </div>
+
+  <script>
+    const button = document.getElementById("toggleButton");
+    const image = document.getElementById("monaImage");
+    const explanation = document.getElementById("explanation");
+
+    let isEdited = true;
+
+    button.addEventListener("click", () => {
+      if (isEdited) {
+        image.src = "img/editedmonalisa.png"; // モナリザ2
+        button.textContent = "元のモナリザに戻す";
+        explanation.style.display = "block";
+      } else {
+        image.src = "img/basicmonalisa.jpg"; // モナリザ1
+        button.textContent = "比較画像に切り替える";
+        explanation.style.display = "none";
+      }
+      isEdited = !isEdited;
+    });
+  </script>
+</body>
+</html>
